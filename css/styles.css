@@ -144,6 +144,7 @@ nav {
   gap: 40px;
 }
 .menu-link {
+  position: relative;
   display: inline-block;
   font-family: var(--main-font);
   font-weight: 500;
@@ -159,7 +160,25 @@ nav {
 .menu-link:focus {
   color: var(--ocean);
 }
-.contacts-link,
+.menu-link::after {
+  content: "";
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+}
+.menu-link .current::after,
+.menu-link:hover::after,
+.menu-link:focus::after {
+  background-color: #404bbf;
+}
+.menu-link .current {
+  color: #404bbf;
+}
+
 .contacts-link,
 .email-phone-link {
   font-family: var(--main-font);
