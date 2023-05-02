@@ -13,6 +13,10 @@
   --grey: #2e2f42;
   --white: #ffffff;
   --dairy: #fcfcfc;
+  --modal-idx: 100;
+  --anim-fast: 400ms ease-in;
+  --anim-slow: 1000ms ease-in-out;
+  --cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 body {
   font-family: Roboto, sans-serif;
@@ -92,6 +96,7 @@ button {
 .modal-btn:focus {
   background-color: #404bbf;
   color: var(--white);
+  transition: transform 250ms var(--cubic);
 }
 .card-modal-btn {
   font-family: inherit;
@@ -116,6 +121,7 @@ button {
   border: 1px solid transparent;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+  transition: transform 250ms var(--cubic);
 }
 .list {
   list-style: none;
@@ -159,6 +165,7 @@ nav {
 .menu-link:hover,
 .menu-link:focus {
   color: var(--ocean);
+  transition: transform 250ms var(--cubic);
 }
 .menu-link::after {
   content: "";
@@ -170,13 +177,13 @@ nav {
   height: 4px;
   border-radius: 2px;
 }
-.menu-link .current::after,
+.menu-link.current {
+  color: #404bbf;
+}
+.menu-link.current::after,
 .menu-link:hover::after,
 .menu-link:focus::after {
   background-color: #404bbf;
-}
-.menu-link .current {
-  color: #404bbf;
 }
 
 .contacts-link,
@@ -194,6 +201,7 @@ nav {
 .contacts-link:hover,
 .contacts-link:focus {
   color: #404bbf;
+  transition: transform 250ms var(--cubic);
 }
 .contacts-list {
   display: flex;
@@ -320,6 +328,35 @@ nav {
   border-radius: 0px 0px 4px 4px;
   padding: 32px 0;
 }
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  transform: translateY(100%);
+  transition: transform var(--anim-slow);
+  background: #4d5ae5;
+  color: #f4f4fd;
+  mix-blend-mode: normal;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+.overlay-label {
+  background-color: var(--iris);
+  text-align: center;
+}
+.card-box {
+  position: relative;
+  overflow: hidden;
+}
 .feautures {
   padding-top: 120px;
   padding-bottom: 120px;
@@ -396,6 +433,9 @@ nav {
   display: block;
   width: calc((100% - 48px) / 3);
 }
+.card-link:hover .overlay {
+  transform: translateY(0);
+}
 .card-item {
   display: block;
   background: #ffffff;
@@ -404,6 +444,7 @@ nav {
 .card-item:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+  transition: transform 250ms var(--cubic);
 }
 
 .card-main-icon {
@@ -429,6 +470,7 @@ nav {
 .socials-link:hover,
 .socials-link:focus {
   background-color: #404bbf;
+  transition: transform 250ms var(--cubic);
 }
 
 .socials-icon {
@@ -446,6 +488,7 @@ nav {
 .footer-socials-link:hover,
 .footer-socials-link:focus {
   background-color: #31d0aa;
+  transition: transform 250ms var(--cubic);
 }
 
 .footer {
@@ -520,6 +563,7 @@ nav {
   color: #404bbf;
   border: 1px solid #404bbf;
   fill: #404bbf;
+  transition: transform 250ms var(--cubic);
 }
 .client-icon {
   fill: currentColor;
@@ -531,4 +575,65 @@ nav {
 .clients-item {
   width: calc((100% - 120px) / 6);
   height: 88px;
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--modal-idx);
+  background: rgba(46, 47, 66, 0.4);
+  transition: opacity 250ms var(--сubic), visibility 250ms var(--сubic);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) rotate(360deg) scale(0.2);
+  opacity: 0;
+}
+.modal {
+  position: absolute;
+  width: 408px;
+  min-height: 508px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0) scale(1);
+  opacity: 1;
+  background: #fcfcfc;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 24px;
+}
+.modal-window-btn {
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  background: #e7e9fc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.modal-window-btn:hover,
+.modal-window-btn:focus {
+  color: #ffffff;
+  background-color: #404bbf;
+  transition: transform 250ms var(--cubic);
+}
+.modal-icon {
+  color: #2e2f42;
+  transition: color var(--anim-fast);
 }
