@@ -15,7 +15,7 @@
   --dairy: #fcfcfc;
   --modal-idx: 100;
   --anim-fast: 400ms ease-in;
-  --anim-slow: 1000ms ease-in-out;
+  --anim-slow: 250ms ease-in-out;
   --cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 body {
@@ -160,6 +160,7 @@ nav {
   color: var(--navy-blue);
   padding-top: 24px;
   padding-bottom: 24px;
+  transition: transform 250ms var(--сubic);
 }
 
 .menu-link:hover,
@@ -169,10 +170,10 @@ nav {
 }
 .menu-link::after {
   content: "";
-  position: absolute;
-  bottom: 12px;
-  left: 0;
   display: block;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
   width: 100%;
   height: 4px;
   border-radius: 2px;
@@ -197,6 +198,7 @@ nav {
   color: var(--slate);
   padding-top: 30px;
   padding-bottom: 30px;
+  transition: transform 250ms var(--сubic);
 }
 .contacts-link:hover,
 .contacts-link:focus {
@@ -422,6 +424,7 @@ nav {
   padding: 0px;
   gap: 24px;
   margin-bottom: 72px;
+  transition: transform 250ms var(--cubic);
 }
 .cards-section {
   padding: 96px 0 120px;
@@ -469,6 +472,7 @@ nav {
   height: 40px;
   background: #4d5ae5;
   border-radius: 50%;
+  transition: transform 250ms var(--cubic);
 }
 .socials-link:hover,
 .socials-link:focus {
@@ -487,6 +491,7 @@ nav {
   height: 40px;
   background: #4d5ae5;
   border-radius: 50%;
+  transition: transform 250ms var(--cubic);
 }
 .footer-socials-link:hover,
 .footer-socials-link:focus {
@@ -503,6 +508,7 @@ nav {
   justify-content: center;
   gap: 16px;
   background: #2e2f42;
+  transition: transform 250ms var(--cubic);
 }
 .footer-logo {
   font-family: "Raleway", sans-serif;
@@ -560,6 +566,7 @@ nav {
   color: var(--light-slate);
   border: 1px solid #8e8f99;
   border-radius: 4px;
+  transition: transform 250ms var(--cubic);
 }
 .clients-link:hover,
 .clients-link:focus {
@@ -583,10 +590,9 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
   width: 100%;
   height: 100%;
+  opacity: 1;
   z-index: var(--modal-idx);
   background: rgba(46, 47, 66, 0.4);
   transition: opacity 250ms var(--сubic), visibility 250ms var(--сubic);
@@ -607,12 +613,13 @@ nav {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(0) scale(1);
-  opacity: 1;
+
   background: #fcfcfc;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   padding: 24px;
+  transition: transform 250ms var(--cubic);
 }
 .modal-window-btn {
   top: 24px;
@@ -629,14 +636,14 @@ nav {
   margin-left: auto;
   background: #e7e9fc;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: transform 250ms var(--cubic);
 }
 .modal-window-btn:hover,
 .modal-window-btn:focus {
   color: #ffffff;
   background-color: #404bbf;
-  transition: transform 250ms var(--cubic);
 }
 .modal-icon {
   color: #2e2f42;
-  transition: color var(--anim-fast);
+  transition: transform 250ms var(--cubic);
 }
