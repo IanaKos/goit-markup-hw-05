@@ -179,6 +179,7 @@ nav {
   border-radius: 2px;
   transition: opacity var(--transition);
 }
+
 .menu-link.current {
   color: #404bbf;
 }
@@ -416,7 +417,6 @@ nav {
   padding: 0px;
   gap: 24px;
   margin-bottom: 72px;
-  transition: transform 250ms var(--cubic);
 }
 .cards-section {
   padding: 96px 0 120px;
@@ -437,7 +437,6 @@ nav {
 .card-item {
   display: block;
   background: #ffffff;
-  transition: transform 250ms var(--cubic);
 }
 .card-item:hover,
 .card-item:focus {
@@ -498,7 +497,6 @@ nav {
   justify-content: center;
   gap: 16px;
   background: #2e2f42;
-  transition: transform 250ms var(--cubic);
 }
 .footer-logo {
   font-family: "Raleway", sans-serif;
@@ -556,7 +554,7 @@ nav {
   color: var(--light-slate);
   border: 1px solid #8e8f99;
   border-radius: 4px;
-  transition: border var(--transition);
+  transition: border color var(--transition);
 }
 .clients-link:hover,
 .clients-link:focus {
