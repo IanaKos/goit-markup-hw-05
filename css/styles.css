@@ -444,6 +444,7 @@ nav {
 .card-item:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+  transform: translateY(0%);
 }
 
 .card-main-icon {
@@ -556,7 +557,7 @@ nav {
   color: var(--light-slate);
   border: 1px solid #8e8f99;
   border-radius: 4px;
-  transition: color var(--transition), border-color var(--transition);
+  transition: border-color var(--transition), color var(--transition);
 }
 .clients-link:hover,
 .clients-link:focus {
@@ -586,7 +587,8 @@ nav {
   opacity: 1;
   z-index: var(--modal-idx);
   background: rgba(46, 47, 66, 0.4);
-  transition: opacity var(--transition), visibility var (--transition);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -631,7 +633,8 @@ nav {
   background: #e7e9fc;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 0;
-  transition: background-color var(--transition), border var (--transition);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-window-btn:hover,
 .modal-window-btn:focus {
