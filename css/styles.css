@@ -114,7 +114,7 @@ button {
   border-radius: 4px;
   padding: 12px 24px;
   transition: color var(--transition), background-color var(--transition),
-    box-shadow var(--transition);
+    border-color var(--transition), box-shadow var(--transition);
 }
 .card-modal-btn:hover,
 .card-modal-btn:focus {
@@ -166,7 +166,7 @@ nav {
 
 .menu-link:hover,
 .menu-link:focus {
-  color: var(--ocean);
+  color: #404bbf;
 }
 .menu-link::after {
   content: "";
@@ -177,6 +177,7 @@ nav {
   width: 100%;
   height: 4px;
   border-radius: 2px;
+
   transition: opacity var(--transition);
 }
 
@@ -341,7 +342,7 @@ nav {
   padding-left: 32px;
   padding-top: 40px;
   transform: translateY(100%);
-  transition: transform 500ms linear;
+  transition: transform var(--transition);
   background: var(--iris);
   color: var(--cloud);
   font-weight: 400;
@@ -437,6 +438,7 @@ nav {
 .card-item {
   display: block;
   background: #ffffff;
+  transition: box-shadow var(--transition);
 }
 .card-item:hover,
 .card-item:focus {
@@ -554,7 +556,7 @@ nav {
   color: var(--light-slate);
   border: 1px solid #8e8f99;
   border-radius: 4px;
-  transition: border color var(--transition);
+  transition: color var(--transition), border-color var(--transition);
 }
 .clients-link:hover,
 .clients-link:focus {
@@ -584,30 +586,34 @@ nav {
   opacity: 1;
   z-index: var(--modal-idx);
   background: rgba(46, 47, 66, 0.4);
-  transition: opacity var(--transition);
+  transition: opacity var(--transition), visibility var (--transition);
 }
 
 .backdrop.is-hidden {
-  opacity: 0;
   transform: translate(-50%, -50%) rotate(360deg) scale(0.2);
 }
 .backdrop.is-hidden .modal {
   transform: translate(-50%, -50%) rotate(360deg) scale(0.2);
   opacity: 0;
 }
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
 .modal {
   position: absolute;
   width: 408px;
-  min-height: 508px;
+  min-height: 576px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
   background: #fcfcfc;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   padding: 24px;
-  transition: transform 300ms linear 200ms, opacity 300ms linear 200ms;
+  transition: transform var(--transition);
 }
 .modal-window-btn {
   top: 24px;
@@ -624,12 +630,14 @@ nav {
   margin-left: auto;
   background: #e7e9fc;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: background-color var(--transition);
+  padding: 0;
+  transition: background-color var(--transition), border var (--transition);
 }
 .modal-window-btn:hover,
 .modal-window-btn:focus {
-  color: #ffffff;
+  fill: #ffffff;
   background-color: #404bbf;
+  border: none;
 }
 .modal-icon {
   color: #2e2f42;
